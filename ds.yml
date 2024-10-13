@@ -1,6 +1,6 @@
 ---
 # MySQL Deployment
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   name: mysql
@@ -28,7 +28,7 @@ spec:
           name: mysql
 ---
 # MySQL Service
-apiVersion: v1
+apiVersion: v2
 kind: Service
 metadata:
   name: mysql-service
@@ -39,7 +39,7 @@ spec:
     app: mysql
 ---
 # Java Application Deployment
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   name: bankapp
@@ -67,7 +67,7 @@ spec:
           value: Test@123
 ---
 # Bank Application Service
-apiVersion: v1
+apiVersion: v2
 kind: Service
 metadata:
   name: bankapp-service
