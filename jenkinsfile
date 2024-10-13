@@ -91,7 +91,7 @@ pipeline {
         
         stage(' K8 Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: ' muhannad-eks', contextName: '', credentialsId: 'k8-token', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://0C5051D1F1A1C6DEF788C7899FBAB548.gr7.ap-south-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: ' muhannad-eks', contextName: '', credentialsId: 'k8-token', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://61BD26150FB02445CE83E3CB1D65296D.gr7.ap-south-1.eks.amazonaws.com') {
                   sh "kubectl apply -f ds.yml -n webapps"
                   sleep 30
                   
@@ -102,7 +102,7 @@ pipeline {
         }   
             stage('Verify Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: ' muhannad-eks', contextName: '', credentialsId: 'k8-token', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://0C5051D1F1A1C6DEF788C7899FBAB548.gr7.ap-south-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: ' muhannad-eks', contextName: '', credentialsId: 'k8-token', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://61BD26150FB02445CE83E3CB1D65296D.gr7.ap-south-1.eks.amazonaws.com') {
                   sh "kubectl get pods -n webapps"
                   sh "kubectl get svc -n webapps"
                   
