@@ -92,7 +92,7 @@ pipeline {
         stage(' K8 Deployment') {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: ' muhannad-eks', contextName: '', credentialsId: 'k8-token', namespace: 'web', restrictKubeConfigAccess: false, serverUrl: 'https://61BD26150FB02445CE83E3CB1D65296D.gr7.ap-south-1.eks.amazonaws.com') {
-                  sh "kubectl apply -f ds.yml -n web"
+                  sh "kubectl apply -f ds.yml -n web1"
                   sleep 30
                   
                   
@@ -103,8 +103,8 @@ pipeline {
             stage('Verify Deployment') {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: ' muhannad-eks', contextName: '', credentialsId: 'k8-token', namespace: 'web', restrictKubeConfigAccess: false, serverUrl: 'https://61BD26150FB02445CE83E3CB1D65296D.gr7.ap-south-1.eks.amazonaws.com') {
-                  sh "kubectl get pods -n web"
-                  sh "kubectl get svc -n web"
+                  sh "kubectl get pods -n web1"
+                  sh "kubectl get svc -n web1"
                   
                 }
             }    
